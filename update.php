@@ -2,18 +2,18 @@
 error_reporting(0);
 $id = $_GET['id'];
 $query = "SELECT * FROM products WHERE id='$id'";
-$data = mysqli_query($connection,$query);
+$data = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($data)
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="form.css">
-  <title>Update product details</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="form.css">
+    <title>Update product details</title>
 </head>
 
 <body>
@@ -41,36 +41,35 @@ $row = mysqli_fetch_assoc($data)
     </div>
     <div class="container">
         <?php
-  if(isset($_POST['update'])){
-      $name = $_POST['name'];
-      $description = $_POST['description'];
-      $price = $_POST['price'];
-      
-      $query = "UPDATE PRODUCTS SET name='$name', description='$description', price='$price' WHERE id='$id'";
-      
-      $data = mysqli_query($connection,$query);
+        if (isset($_POST['update'])) {
+            $name = $_POST['name'];
+            $description = $_POST['description'];
+            $price = $_POST['price'];
 
-      
-      if($data){
-          echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            $query = "UPDATE PRODUCTS SET name='$name', description='$description', price='$price' WHERE id='$id'";
+
+            $data = mysqli_query($connection, $query);
+
+
+            if ($data) {
+                echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
           Product has been updated successfully.
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>';
-          echo "<script>alert('Record updated')</script>";
-          ?>
-          <meta http-equiv="refresh" content="2; url=http://localhost/crud/display.php" />
-          <?php
-        } else {
-            echo "Failed to update data";
+                echo "<script>alert('Record updated')</script>";
+        ?>
+                <meta http-equiv="refresh" content="2; url=http://localhost/crud/display.php" />
+        <?php
+            } else {
+                echo "Failed to update data";
+            }
+
+            // INSERT INTO `products` (`id`, `name`, `description`, `price`, `created_at`) VALUES ('1', 'laptop', 'a new age device', '66000.28', current_timestamp());
         }
-        
-        // INSERT INTO `products` (`id`, `name`, `description`, `price`, `created_at`) VALUES ('1', 'laptop', 'a new age device', '66000.28', current_timestamp());
-    }
-    ?>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+        ?>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 
 </html>
-

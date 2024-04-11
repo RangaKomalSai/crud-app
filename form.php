@@ -31,33 +31,32 @@
     </form>
   </div>
   <div class="container">
-  <?php
-  if(isset($_POST['submit'])){
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $price = $_POST['price'];
+    <?php
+    if (isset($_POST['submit'])) {
+      $name = $_POST['name'];
+      $description = $_POST['description'];
+      $price = $_POST['price'];
 
-    $query = "INSERT INTO PRODUCTS (name, description, price) VALUES ('$name', '$description', '$price')";
-    
-    $data = mysqli_query($connection,$query);
+      $query = "INSERT INTO PRODUCTS (name, description, price) VALUES ('$name', '$description', '$price')";
 
-    
-    if($data){
-      echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+      $data = mysqli_query($connection, $query);
+
+
+      if ($data) {
+        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
       Product has been added successfully.
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
-    } else {
-      echo "Failed to insert data";
-    }
+      } else {
+        echo "Failed to insert data";
+      }
 
-    // INSERT INTO `products` (`id`, `name`, `description`, `price`, `created_at`) VALUES ('1', 'laptop', 'a new age device', '66000.28', current_timestamp());
-  }
-?>
+      // INSERT INTO `products` (`id`, `name`, `description`, `price`, `created_at`) VALUES ('1', 'laptop', 'a new age device', '66000.28', current_timestamp());
+    }
+    ?>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 
 </html>
-
