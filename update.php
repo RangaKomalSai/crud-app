@@ -34,7 +34,7 @@ $row = mysqli_fetch_assoc($data)
             </div>
             <div class="mb-3">
                 <label for="Price">Price</label>
-                <input type="text" value="<?php echo $row['price']; ?>" class="form-control" id="Price" placeholder="Price" name="price" required>
+                <input type="text" value="<?php echo $row['price']; ?>" class="form-control" id="Price" placeholder="Price" name="price" pattern='\d+(\.\d{1,2})?' title="Enter numbers only" required>
             </div>
             <button type="submit" class="btn btn-primary" name="update">Update Procuct</button>
         </form>
@@ -58,7 +58,7 @@ $row = mysqli_fetch_assoc($data)
           </div>';
                 echo "<script>alert('Record updated')</script>";
         ?>
-                <meta http-equiv="refresh" content="2; url=http://localhost/crud/display.php" />
+                <meta http-equiv="refresh" content="1; url=http://localhost/crud/read.php" />
         <?php
             } else {
                 echo "Failed to update data";
