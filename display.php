@@ -37,8 +37,8 @@
       <td>". $row['price']."</td>      
       <td>". $row['created_at']."</td>      
       <td>
-        <button type='button' class='btn btn-success'>Update</button>
-        <button type='button' class='btn btn-danger'>Delete</button></td>      
+        <a href='update.php?id=$row[id]' class='btn btn-success'>Update</a>
+        <a href='delete.php' class='btn btn-danger'>Delete</a></td>      
       </tr>";
     }
 
